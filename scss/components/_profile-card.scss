@@ -1,0 +1,43 @@
+@mixin blockStyle {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+}
+
+.items {
+  @include blockStyle;
+  .item {
+    position: relative;
+    box-shadow: 0 1px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    img {
+      transition: all 0.3s ease;
+    }
+
+    &__content {
+      padding: 30px 40px;
+      text-align: center;
+    }
+
+    .social {
+      position: absolute;
+      top: 0;
+      right: 0;
+      transform: translateY(-100%);
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      transition: all 0.3s ease;
+    }
+
+    &:hover {
+      > img {
+        filter: grayscale(100%);
+      }
+
+      .social {
+        transform: translateY(0%);
+      }
+    }
+  }
+}
